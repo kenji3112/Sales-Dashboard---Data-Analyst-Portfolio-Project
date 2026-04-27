@@ -1,0 +1,42 @@
+SELECT  p.[ProductKey]
+      ,p.[ProductAlternateKey] as ProductItemCode
+     -- ,p.[ProductSubcategoryKey]
+     -- ,[WeightUnitMeasureCode]
+     -- ,[SizeUnitMeasureCode]
+      ,[EnglishProductName] as [Product Name],
+	  ps.EnglishProductSubcategoryName as [Sub Category],
+	   pc.EnglishProductCategoryName as [Product Category]
+      ,[SpanishProductName]
+      ,[FrenchProductName]
+      ,[StandardCost]
+      ,[FinishedGoodsFlag]
+      ,[Color]
+      ,[SafetyStockLevel]
+      ,[ReorderPoint]
+      ,[ListPrice]
+      ,[Size]
+      ,[SizeRange]
+      ,[Weight]
+      ,[DaysToManufacture]
+      ,[ProductLine]
+      ,[DealerPrice]
+      ,[Class]
+      ,[Style]
+      ,[ModelName]
+      ,[LargePhoto]
+      ,[EnglishDescription]
+      ,[FrenchDescription]
+      ,[ChineseDescription]
+      ,[ArabicDescription]
+      ,[HebrewDescription]
+      ,[ThaiDescription]
+      ,[GermanDescription]
+      ,[JapaneseDescription]
+      ,[TurkishDescription]
+      ,[StartDate]
+      ,[EndDate]
+      ,[Status]
+  FROM [AdventureWorksDW2022].[dbo].[DimProduct] p
+  LEFT JOIN DimProductSubcategory ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey
+  LEFT JOIN DimProductCategory pc ON pc.ProductCategoryKey = ps.ProductCategoryKey
+
